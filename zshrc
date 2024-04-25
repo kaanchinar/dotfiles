@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="fino"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -118,6 +118,14 @@ if command -v pacman &> /dev/null; then
 	alias get="sudo pacman -S"
 	alias remove="sudo pacman -Rcns"
 	alias search="sudo pacman -Ss"
+	if command -v yay &> /dev/null; then
+		alias update=" yay -Sy"
+		alias upgrade=" yay -Syu"
+		alias get="yay -S"
+		alias remove=" yay -Rcns"
+		alias search=" yay -Ss"
+		
+	fi
 fi
 
 
@@ -125,6 +133,8 @@ alias r="source ~/.zshrc"
 alias c="clear"
 alias cls="clear"
 
+alias cat='bat'
+alias top='htop'
 
 # bun completions
 [ -s "/home/kaan/.bun/_bun" ] && source "/home/kaan/.bun/_bun"
